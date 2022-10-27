@@ -14,15 +14,20 @@ function App() {
   }])
 
   const handleAdd = () => {
-    setToDos([...toDos, {
-      id: toDos.length + 1,
-      isDone: false,
-      isDelete: false,
-      title: titleBar,
-      context: contextBar,
-    }])
-    setTitleBar('')
-    setContextBar('')
+    if(titleBar.trim()==''||contextBar.trim()==''){
+      alert('Please input the title and the context!')
+    }else{
+      setToDos(
+        [...toDos, {
+        id: toDos.length + 1,
+        isDone: false,
+        isDelete: false,
+        title: titleBar,
+        context: contextBar,
+      }])
+      setTitleBar('')
+      setContextBar('')
+    }  
   }
 
   const handleDelete = (x) => {
